@@ -1,0 +1,105 @@
+<p><b>BreakFast Items</b></p>
+<%if @break_items.empty?%>
+  <p>No Items are found</p>
+<%else%>
+<table class="table table-bordered table-hover">
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Price</th>
+
+</tr>
+<%@break_items.each do |m|%>
+<tr><td><%=m.name%> </td> 
+<td><%=m.branch.name%> </td>
+<td> <%=m.price%></td> 
+</tr>
+<%end%>
+</table>
+<%end%>
+<p><b>Lunch Items</b><p>
+<%if @lunch_items.empty?%>
+  <p>No Items are found</p>
+<%else%>
+	<table class="table table-bordered table-hover">
+	<tr>
+	<th>Name</th>
+	<th>Location</th>
+	<th>Price</th>
+   </tr>
+	<%@lunch_items.each do |m|%>
+	<tr><td><%=m.name%> </td> 
+	<td><%=m.branch.name%> </td>
+	<td> <%=m.price%></td> 
+	</tr>
+	<%end%>
+	</table>
+<%end%>
+
+
+<p><b>Dinner Items</b><p>
+<%if @din_items.empty?%>
+  <p>No Items are found</p>
+<%else%>
+<table>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Price</th>
+
+</tr>
+<%@din_items.each do |m|%>
+<tr><td><%=m.name%> </td> 
+<td><%=m.branch.name%> </td>
+<td> <%=m.price%></td> 
+</tr>
+<%end%>
+</table>
+<%end%>
+
+
+
+<p><b>Snacks Items</b><p>
+<%if @snac_items.empty?%>
+  <p>No Items are found</p>
+<%else%>
+<table class="table table-bordered table-hover">
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Price</th>
+
+</tr>
+<%@snac_items.each do |m|%>
+<tr><td><%=m.name%> </td> 
+<td><%=m.branch.name%> </td>
+<td> <%=m.price%></td> 
+</tr>
+<%end%>
+</table>
+<%end%>
+
+
+
+<p><b>Over the day Items</b><p>
+<%if @over_items.empty?%>
+  <p>No Items are found</p>
+<%else%>
+<table>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Price</th>
+
+</tr>
+<%@over_items.each do |m|%>
+<tr><td><%=m.name%> </td> 
+<td><%=m.branch.name%> </td>
+<td> <%=m.price%></td> 
+</tr>
+<%end%>
+</table>
+<%end%>
+
+
+

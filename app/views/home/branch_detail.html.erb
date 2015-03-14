@@ -1,0 +1,45 @@
+<%= form_tag(get_the_menu_item_path) do %>
+ <div><b>Select City:&nbsp;&nbsp;&nbsp;</b><%= select_tag 'city', options_for_select([
+['Select City','0']]+@cities,:selected => ""), :data => { :remote => true , :url => url_for(:controller => "home", :action => "branch_detail")} %>
+</div><br>
+<div id ="brach_details">
+
+</div>
+<br>
+<div id="date_pic" style="display:none;">
+<b>Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><%=text_field_tag "date","",:id=>"datepicker"%></div>
+<br>
+ <%= submit_tag "Submit",:id => "submit", :style=>"display:none;"%>
+<% end %>
+
+
+<script>
+$(function() {
+// $( "#datepicker" ).datepicker();
+//var date = $("#datepicker").datepicker('getDate');
+// $( "#datepicker" ).datepicker({ 
+//   dateFormat: 'mm-dd-yy',
+//   constrainInput: false
+// });
+$('#datepicker').datepicker({
+             dateFormat: 'DD, d MM, yy',
+             onSelect: function(dateText, inst) { 
+             var dateAsString = dateText; //the first parameter of this function
+             var newDateFormat = $.datepicker.parseDate('dd-mm-yyyy', dateAsString);
+           }
+    });
+});
+
+$('#city').change(function() {
+	if($(this).val() == "0"){
+		$('#brach_details,#date_pic,#submit').hide();
+		alert('Please Select the City');
+		return false;
+	}
+	else{
+		$('#brach_details,#date_pic,#submit').show();
+	}
+
+	// body...
+})
+</script>
